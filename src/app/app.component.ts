@@ -19,8 +19,8 @@ export class AppComponent implements OnInit {
     console.table(this.pokemonsList)
   }
 
-  selectPokemon(inputNumber: HTMLInputElement): void {
-    const n: number = Number(inputNumber.value);
+  selectPokemon(pokemonId: string): void {
+    const n: number = +pokemonId;
     console.log(`vous avez cliquer sur le pokemon ${this.pokemonsList[n].name}`);
   }
 }

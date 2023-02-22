@@ -2,14 +2,14 @@
 <input
   #input
   type="string"
-  (keyup) = "0"
+  (keyup)="0"
 />
 <p> {{input.value}}</p>
 
 <input
-#inputNumber
-type="number"
-(click)="selectPokemon(inputNumber)"
+  #inputNumber
+  type="number"
+  (click)="selectPokemon(inputNumber.value)"
 />
 <p> {{pokemonsList[0].name}}</p>
 <img [src]=pokemonsList[0].picture>
