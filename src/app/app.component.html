@@ -1,7 +1,15 @@
 <h1> Liste des pokémons </h1>
 <input
+  #input
+  type="string"
+  (keyup) = "0"
+/>
+<p> {{input.value}}</p>
+
+<input
+#inputNumber
 type="number"
-(click)="selectPokemon($event)"
+(click)="selectPokemon(inputNumber)"
 />
 <p> {{pokemonsList[0].name}}</p>
 <img [src]=pokemonsList[0].picture>
