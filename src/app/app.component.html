@@ -4,11 +4,9 @@
   type="number"
   (keyup.enter)="selectPokemon(input.value)"
 />
-<p *ngIf="pokemonSelected">
-  Pokemen selectioné : {{pokemonSelected?.name}}
-  <img [src]=pokemonSelected?.picture>
+<p *ngFor="let pokemon of pokemonList">
+  Pokemen selectioné : {{pokemon.name}}
+  <img [src]=pokemon.picture>
 </p>
-<p *ngIf="!pokemonSelected">
-  Pas de pokemen selectioné
-</p>
+
 
