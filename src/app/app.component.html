@@ -2,7 +2,13 @@
 <input
   #input
   type="number"
-  (keyup)="selectPokemon(input.value)"
+  (keyup.enter)="selectPokemon(input.value)"
 />
-<p> {{pokemonSelected?.name}}</p>
-<img [src]=pokemonSelected?.picture>
+<p *ngIf="pokemonSelected">
+  Pokemen selectioné : {{pokemonSelected?.name}}
+  <img [src]=pokemonSelected?.picture>
+</p>
+<p *ngIf="!pokemonSelected">
+  Pas de pokemen selectioné
+</p>
+
