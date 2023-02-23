@@ -1,15 +1,8 @@
 <h1> Liste des pokémons </h1>
 <input
   #input
-  type="string"
-  (keyup)="0"
-/>
-<p> {{input.value}}</p>
-
-<input
-  #inputNumber
   type="number"
-  (click)="selectPokemon(inputNumber.value)"
+  (keyup)="selectPokemon(input.value)"
 />
-<p> {{pokemonsList[0].name}}</p>
-<img [src]=pokemonsList[0].picture>
+<p> {{pokemonSelected?.name}}</p>
+<img [src]=pokemonSelected?.picture>

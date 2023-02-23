@@ -8,19 +8,22 @@ import {POKEMONS} from "./models/mock-pokemon-list";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'pokemon-go';
-  pokemonsList: Pokemon[] = POKEMONS;
+  pokemonList: Pokemon[] = POKEMONS;
+  pokemonSelected: Pokemon | undefined;
 
-
-  constructor() {
+   ngOnInit(): void {
+    console.table(this.pokemonList)
   }
 
-  ngOnInit(): void {
-    console.table(this.pokemonsList)
-  }
+  selectPokemon(pokemonId: string) {
+    const pokemon: Pokemon | undefined = this.pokemonList.find(pokemon => pokemon.id == +pokemonId);
 
-  selectPokemon(pokemonId: string): void {
-    const n: number = +pokemonId;
-    console.log(`vous avez cliquer sur le pokemon ${this.pokemonsList[n].name}`);
+    if (pokemon) {
+      this.pokemonSelected = pokemon;
+      console.log(`vous avez demandé le pokemon ${pokemon.name}`);
+    } else {
+      this.pokemonSelected = pokemon;
+      console.log(`vous avez demandé un pokemon qui n'existe pas !`);
+    }
   }
 }
