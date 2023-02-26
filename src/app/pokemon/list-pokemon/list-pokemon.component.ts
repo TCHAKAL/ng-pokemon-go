@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Pokemon} from "../../models/pokemon";
-import {POKEMONS} from "../../models/mock-pokemon-list";
+import {Pokemon} from "../models/pokemon";
+import {POKEMONS} from "../models/mock-pokemon-list";
 import {Router} from "@angular/router";
 
 @Component({
