@@ -44,6 +44,18 @@
             Les dégâts du pokémon sont requis et compris entre 0 et 99.
           </div>
         </div>
+        <!-- Pokemon picture -->
+        <div *ngIf="isAddForm" class="form-group">
+          <label for="picture">Picture</label>
+          <input type="text" class="form-control" id="picture"
+                 required
+                 [(ngModel)]="pokemon.picture" name="picture"
+                 #picture="ngModel">
+          <div [hidden]="picture.valid || picture.pristine"
+               class="card-panel red accent-1">
+            La photo du pokémon est requise.
+          </div>
+        </div>
 
         <!-- Pokemon types -->
         <form class="form-group">
