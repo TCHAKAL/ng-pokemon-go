@@ -6,6 +6,8 @@ import {PageNotFoundComponent} from './pokemon/page-not-found/page-not-found.com
 import {PokemonModule} from "./pokemon/pokemon.module";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryDataService} from "./in-memory-data.service";
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
     PokemonModule,
     AppRoutingModule,
   ],
