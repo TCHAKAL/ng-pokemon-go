@@ -45,11 +45,11 @@ export class PokemonService {
     );
   }
 
-  addPokemon(pokemon: Pokemon): Observable<null> {
+  addPokemon(pokemon: Pokemon): Observable<Pokemon> {
     const httpOptions = {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
-    return this.httpClient.post('api/pokemons', pokemon, httpOptions).pipe(
+    return this.httpClient.post<Pokemon>('api/pokemons', pokemon, httpOptions).pipe(
       tap(response => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
     );

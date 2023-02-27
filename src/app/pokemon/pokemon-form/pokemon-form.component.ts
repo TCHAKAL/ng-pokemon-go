@@ -50,8 +50,8 @@ export class PokemonFormComponent implements OnInit {
 
   onSubmit() {
     if (this.isAddForm) {
-      this.pokemonService.addPokemon(this.pokemon).subscribe(() => {
-          this.router.navigate(['/pokemons/', this.pokemon.id])
+      this.pokemonService.addPokemon(this.pokemon).subscribe((pokemon) => {
+          this.router.navigate(['/pokemons/', pokemon.id])
         }
       );
     } else {
