@@ -32,8 +32,14 @@ export class PokemonService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
-
     return this.httpClient.put('api/pokemons', pokemon, httpOptions).pipe(
+      tap(response => this.log(response)),
+      catchError((error) => this.handleError(error, undefined))
+    );
+  }
+
+  deletePokemon(pokemonId: number): Observable<null> {
+    return this.httpClient.delete(`api/pokemons/${pokemonId}`).pipe(
       tap(response => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
     );
