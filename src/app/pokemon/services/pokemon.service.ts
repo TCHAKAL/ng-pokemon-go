@@ -55,6 +55,14 @@ export class PokemonService {
     );
   }
 
+  searchPokemonList(term: string): Observable<Pokemon[]> {
+    return this.httpClient.get<Pokemon[]>(`api/pokemons/?name=${term}`).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, []))
+    );
+  }
+
+
   getPokemonTypeList(): string[] {
     return ['Plante', 'Feu', 'Eau', 'Insect', 'Normal', 'Electrik', 'Poison', 'Fée', 'Vol', 'Combat', 'Psy'];
   }
@@ -67,4 +75,6 @@ export class PokemonService {
     console.log(error);
     return of(errorValue);
   }
+
+
 }
