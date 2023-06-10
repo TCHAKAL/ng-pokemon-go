@@ -29,13 +29,20 @@ export class EditPokemonComponent implements OnInit {
     if (pokemonId) {
       this.pokemonService
         .getPokemonById(+pokemonId)
-        .subscribe(pokemon => this.pokemon = pokemon);
+        .subscribe(pokemon => {
+            this.pokemon = pokemon;
+            this.initTitle(pokemon);
+          }
+        );
     } else {
       this.pokemon = undefined;
     }
-  }
+}
 
-  initTitle(pokemon: Pokemon | undefined) {
+  initTitle(pokemon
+              :
+              Pokemon | undefined
+  ) {
     if (!pokemon) {
       this.title.setTitle('Pokemon not found');
     } else {
